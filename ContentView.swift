@@ -4,6 +4,8 @@ struct ContentView: View {
     let mainColor = Color(red: 20/255, green: 28/255, blue: 58/255)
     let accentColor = Color(red: 48/255, green: 105/255, blue: 240/255)
     
+    let buttonLabels = ["Ant", "Bee", "Moth", "Beetle"]
+    
     var body: some View {
         ZStack {
             mainColor.edgesIgnoringSafeArea(.all)
@@ -19,32 +21,19 @@ struct ContentView: View {
                     .multilineTextAlignment(.center)
                     .padding()
                 Spacer()
-                HStack {
-                    Spacer(minLength: 50)
-                    Button(action: {
-                        print("Tapped on true")
-                    }) {
-                        Text("True")
-                            .font(.title)
-                            .bold()
-                            .padding(20)
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .background(accentColor)
-                            .cornerRadius(10)
+                HStack(spacing: 24) {
+                    ForEach(buttonLabels, id: \.self) { label in
+                        Button(action: {
+                            print("Tapped on \(label)")
+                        }) {
+                            Text(label)
+                                .font(.body)
+                                .bold()
+                                .multilineTextAlignment(.center)
+                                .padding()
+                                .border(accentColor, width: 4)
+                        }
                     }
-                    Spacer()
-                    Button(action: {
-                        print("Tapped on false")
-                    }) {
-                        Text("False")
-                            .font(.title)
-                            .bold()
-                            .padding(20)
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .background(accentColor)
-                            .cornerRadius(10)
-                    }
-                    Spacer(minLength: 50)
                 }
             }
         }

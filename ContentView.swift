@@ -31,7 +31,7 @@ struct ContentView: View {
                                 .bold()
                                 .multilineTextAlignment(.center)
                                 .padding()
-                                .border(accentColor, width: 4)
+                                .border(accentColor, width: 6)
                         }
                     }
                 }

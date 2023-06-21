@@ -6,59 +6,45 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            mainColor.ignoresSafeArea()
+            mainColor.edgesIgnoringSafeArea(.all)
             VStack {
                 Text("1/10")
                     .font(.body)
                     .bold()
                     .multilineTextAlignment(.center)
                     .padding()
-                Text("What was the first computer bug?")
+                Text("What was the first computer bug")
                     .font(.largeTitle)
                     .bold()
                     .multilineTextAlignment(.center)
+                    .padding()
                 Spacer()
                 HStack {
+                    Spacer(minLength: 50)
                     Button(action: {
-                        print("Pressed the Ant button")
-                    }, label: {
-                        Text("Ant")
-                            .font(.body)
+                        print("Tapped on true")
+                    }) {
+                        Text("True")
+                            .font(.title)
                             .bold()
-                            .multilineTextAlignment(.center)
-                            .padding()
-                            .border(accentColor, width: 4)
-                    })
+                            .padding(20)
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .background(accentColor)
+                            .cornerRadius(10)
+                    }
+                    Spacer()
                     Button(action: {
-                        print("Pressed the Moth button")
-                    }, label: {
-                        Text("Moth")
-                            .font(.body)
+                        print("Tapped on false")
+                    }) {
+                        Text("False")
+                            .font(.title)
                             .bold()
-                            .multilineTextAlignment(.center)
-                            .padding()
-                            .border(accentColor, width: 4)
-                    })
-                    Button(action: {
-                        print("Pressed the Bee button")
-                    }, label: {
-                        Text("Bee")
-                            .font(.body)
-                            .bold()
-                            .multilineTextAlignment(.center)
-                            .padding()
-                            .border(accentColor, width: 4)
-                    })
-                    Button(action: {
-                        print("Pressed the Beetle button")
-                    }, label: {
-                        Text("Beetle")
-                            .font(.body)
-                            .bold()
-                            .multilineTextAlignment(.center)
-                            .padding()
-                            .border(accentColor, width: 4)
-                    })
+                            .padding(20)
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .background(accentColor)
+                            .cornerRadius(10)
+                    }
+                    Spacer(minLength: 50)
                 }
             }
         }

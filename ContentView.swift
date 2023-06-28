@@ -4,8 +4,6 @@ struct ContentView: View {
     let mainColor = Color(red: 20/255, green: 28/255, blue: 58/255)
     let accentColor = Color(red: 48/255, green: 105/255, blue: 240/255)
     
-    let buttonLabels = ["Ant", "Bee", "Moth", "Beetle"]
-    
     var body: some View {
         ZStack {
             mainColor.edgesIgnoringSafeArea(.all)
@@ -21,18 +19,46 @@ struct ContentView: View {
                     .multilineTextAlignment(.center)
                     .padding()
                 Spacer()
-                HStack(spacing: 24) {
-                    ForEach(buttonLabels, id: \.self) { label in
-                        Button(action: {
-                            print("Tapped on \(label)")
-                        }) {
-                            Text(label)
-                                .font(.body)
-                                .bold()
-                                .multilineTextAlignment(.center)
-                                .padding()
-                                .border(accentColor, width: 6)
-                        }
+                HStack(spacing: 14) {
+                    Button(action: {
+                        print("Tapped on button Ant")
+                    }) {
+                        Text("Ant")
+                            .font(.body)
+                            .bold()
+                            .multilineTextAlignment(.center)
+                            .padding()
+                            .border(accentColor, width: 4)
+                    }
+                    Button(action: {
+                        print("Tapped on button Fly")
+                    }) {
+                        Text("Fly")
+                            .font(.body)
+                            .bold()
+                            .multilineTextAlignment(.center)
+                            .padding()
+                            .border(accentColor, width: 4)
+                    }
+                    Button(action: {
+                        print("Tapped on button Moth")
+                    }) {
+                        Text("Moth")
+                            .font(.body)
+                            .bold()
+                            .multilineTextAlignment(.center)
+                            .padding()
+                            .border(accentColor, width: 4)
+                    }
+                    Button(action: {
+                        print("Tapped on button Beetle")
+                    }) {
+                        Text("Beetle")
+                            .font(.body)
+                            .bold()
+                            .multilineTextAlignment(.center)
+                            .padding()
+                            .border(accentColor, width: 4)
                     }
                 }
             }

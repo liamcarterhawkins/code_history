@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     let mainColor = Color(red: 20/255, green: 28/255, blue: 58/255)
     let accentColor = Color(red: 48/255, green: 105/255, blue: 240/255)
     
@@ -13,7 +14,7 @@ struct ContentView: View {
                     .bold()
                     .multilineTextAlignment(.center)
                     .padding()
-                Text("What was the first computer bug")
+                Text("What was the first computer bug?")
                     .font(.largeTitle)
                     .bold()
                     .multilineTextAlignment(.center)
@@ -53,7 +54,7 @@ struct ContentView: View {
                     Button(action: {
                         print("Tapped on button Beetle")
                     }) {
-                        Text("Beetle")
+                        Text("Bettle")
                             .font(.body)
                             .bold()
                             .multilineTextAlignment(.center)

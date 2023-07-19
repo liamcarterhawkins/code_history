@@ -1,9 +1,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    let question = Question (
+        questionText: "What was the first computer bug?",
+        possibleAnswers: ["Ant", "Fly", "Moth", "Beetle"],
+        correctAnswerIndex: 2
+    )
     
-    let mainColor = Color(red: 20/255, green: 28/255, blue: 58/255)
-    let accentColor = Color(red: 48/255, green: 105/255, blue: 240/255)
+    @state var mainColor = Color(red: 20/255, green: 28/255, blue: 58/255)
     
     var body: some View {
         ZStack {
@@ -14,52 +18,20 @@ struct ContentView: View {
                     .bold()
                     .multilineTextAlignment(.center)
                     .padding()
-                Text("What was the first computer bug?")
+                Text(question.questionText)
                     .font(.largeTitle)
                     .bold()
                     .multilineTextAlignment(.center)
                     .padding()
                 Spacer()
                 HStack(spacing: 14) {
-                    Button(action: {
-                        print("Tapped on button Ant")
-                    }) {
-                        Text("Ant")
-                            .font(.body)
-                            .bold()
-                            .multilineTextAlignment(.center)
-                            .padding()
-                            .border(accentColor, width: 4)
-                    }
-                    Button(action: {
-                        print("Tapped on button Fly")
-                    }) {
-                        Text("Fly")
-                            .font(.body)
-                            .bold()
-                            .multilineTextAlignment(.center)
-                            .padding()
-                            .border(accentColor, width: 4)
-                    }
-                    Button(action: {
-                        print("Tapped on button Moth")
-                    }) {
-                        Text("Moth")
-                            .font(.body)
-                            .bold()
-                            .multilineTextAlignment(.center)
-                            .padding()
-                            .border(accentColor, width: 4)
-                    }
-                    Button(action: {
-                        print("Tapped on button Beetle")
-                    }) {
-                        Text("Bettle")
-                            .font(.body)
-                            .bold()
-                            .multilineTextAlignment(.center)
-                            .padding()
-                            .border(accentColor, width: 4)
+                    ForEach(0..<question.possibleAnswers.count) { answerIndex in
+                        Button(action: {
+                            print("Tapped on button \(question.possibleAnswers[answerIndex])")
+                            mainColor = answerIndex == question.correctAnswerIndex ? .green : .red
+                        }) {
+                            ChoiceTextView(choiceText: question.possibleAnswers[answerIndex])
+                        }
                     }
                 }
             }
